@@ -1,8 +1,9 @@
 \documentclass{article}
 
 
-\title{Template}
-\author{Name}
+\title{MMNS}
+\author{Matěj Popďakunik}
+
 
 \usepackage[czech]{babel}
 
@@ -63,15 +64,12 @@
 
 
 \renewcommand*{\proofname}{Důkaz:}
-\renewcommand{\figurename}{Obrázek} %lepší překlad
+\renewcommand{\figurename}{Obrázek:} %lepší překlad
 
 
 
 
 \usepackage{subfiles}
-
-
-
 
 \usepackage{hyperref}
 \hypersetup{
@@ -79,15 +77,20 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={\@title},
+    pdftitle={MMNS},
     pdfpagemode=FullScreen,
     }
+
+
+\newcommand{\identity}{Yd}
    
 \begin{document}
 
 
 
 \maketitle
+\newpage
+\subfile{notes/09-27.tex}
 
 
 

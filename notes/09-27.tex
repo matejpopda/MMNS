@@ -1,0 +1,111 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+\section{Mandelbrot}
+
+\begin{equation}
+    z_{n+1} = z_n^2 + c
+\end{equation}
+
+Pro $z_n \to 0$ jde o Juliovy množiny
+
+Obecněji 
+\begin{equation}
+    z_{n+1} = F(z_n)
+\end{equation}
+
+
+
+
+
+
+\section{Úvod do teorie dynamických systémů}
+
+\begin{remark}
+    Použijeme metrické prostory $X = (X, \varrho)$ kde $X$ je 
+    množina a $\varrho: X \times X \to \mathbb{R}^+_0$
+    je metrika. tj
+    \begin{enumerate}
+        \item $(\forall x,y \in X )(\varrho(x,y) = \varrho(y,x))$
+        \item $(\forall x,y \in X )(\varrho(x,y) = 0 \Leftrightarrow x =y)$
+        \item $(\forall x,y,z \in X) (\varrho(x,z) \leq \varrho(x,y) + \varrho(y,z))$
+    \end{enumerate}
+    Pak také $(\forall x,y \in X) (\varrho(x,y) \geq 0)$
+\end{remark}
+
+\begin{definition}
+    Nechť na $X$ je dán soubor zobrazení $\{S(t)\}_{t\in \square}$ takový, že 
+    \begin{enumerate}
+        \item $(\forall t \in \square)(S(t): X \to X \text{je spojité})$
+        \item $S(0) = \identity$ (identita)
+        \item $(\forall s,t \in \square)(S (t+s) = S(t) \circ S(s))$
+    \end{enumerate}
+
+    Pak $\{S(t)\}_{t\in\square}$ se nazývá \textbf{dynamický systém} 
+    \begin{itemize}
+        \item pro $\square = \mathbb{R}$ \textbf{invertovatelný}
+        \item pro $\square = \mathbb{R}_0^+$ \textbf{neinvertovatelný}
+        \item pro $\square = \mathbb{Z}$ \textbf{diskrétní}
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    \hphantom{1}
+    \begin{enumerate}
+        \setcounter{enumi}{-1}
+        \item $S(t)$ je spojité na $X: (\forall x_0 \in X)(\forall\varepsilon>0)(\exists \delta > 0)(\forall x\in X, \varphi(x,x_0)<\delta)(\varrho(S(t)x, S(t)x_0)< \varepsilon)$
+        \item Smysl $S(t)$ je vývoj počátečního stavu $x_{ini}\in x$ v čase $t\in \square: S(t)x_{ini}$, $t$ má roli času
+        \item $S(0) = \identity$ znamená: $S(0)x_{ini} = x_{ini}$
+        \item Podmínka 3: pro $x_{ini} \in X$, pro $t,s,t+s\in \square : S (t+s)x_{ini} = S(t)[S(s)x_{ini}]$
+        \item Pak pro $\square = \mathbb{R}:$ zvolme $t\in \mathbb{R}$ a pak $-t \in \mathbb{R} \implies $platí podmínka$ 3:$ \begin{equation}
+            S(0) = S(t + (-t)) = S(t) \circ S(-t) = S((-t) + t) = S(-t) \circ S(t) = \identity
+        \end{equation}
+        Z toho máme $S(-t) = [S(t)]^{-1}$
+        
+        Pro $\square = z \implies $pro$ k\in \mathbb{Z}$ je 
+        \begin{multline}
+            S(k) x_{ini} = \{\text{Dle bodu 3}\} = S(k-1)[S(1)x_{ini}] (\text{Zatím pro} k\in\mathbb{N}) = \dots = \\
+            = S(1)[S(1)[\dots S(1)x_ini]] = [S(1)\circ S(1)\circ S(1)\circ \dots \circ S(1)]x_{ini} \overset{ozn.}{=} S(1)^{[k]}
+        \end{multline}
+        Pro $k<0$ označme $S(1)^{k} = \left([S(1)]^{-1}\right)^{[|k|]}$
+
+        Pro $k=0$ označme $S(1)^{[k]} = \identity$
+    \end{enumerate}
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
