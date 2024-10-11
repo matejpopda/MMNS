@@ -1,0 +1,143 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+
+
+
+
+\begin{example}
+    Nekonečně rozměrný dynamický systém:
+    \begin{equation}
+        \partial_t u = D\partial^2_{xx} u, v (0,\infty) \times (a,b)
+    \end{equation}
+
+    Okrajové podmínky $u|_{\bar{x}=a} = 0, u|_{\bar{x}=b} = 0$ a počáteční podmínky $u|_{t=0} = u_{ini}(\bar{x})$ v $(a,b)$
+
+
+    ÚKOL: zapsat analytické řešení ve tvaru řady a určit, jaký DS generuje.   
+
+    Pro usnadnění provedeme transformaci $x=\bar{x}-a$
+    Transformované okrajové podmínky jsou $u|_{x=0} = 0, u|_{x=b-a} = 0$
+
+    Řešíme pomoci separace proměnných. 
+
+    \begin{equation}
+        u(x,t) = S(t)T(x)
+    \end{equation}
+    Rovnice je pak 
+
+    \begin{equation}
+        T(x) \frac{d S(t)}{dt} = \frac{d^2 T(x)}{dx^2} S(t)
+    \end{equation}
+
+
+    Upravíme
+    \begin{equation}
+        \frac{T(x)}{\frac{d^2 T(x)}{dx^2}} = \frac{S(t)}{\frac{d S(t)}{dt}}
+    \end{equation}
+
+    Levá strana závisí pouze na x, levá pouze na t, proto se obě strany rovnají nějaké konstantě C.
+
+    Z pravé strany máme 
+    \begin{equation}
+        \frac{d S(t)}{dt} = CS(t)
+    \end{equation}
+
+    Z toho dostáváme
+    \begin{equation}
+        S(t) = A e^{C t}
+    \end{equation}
+
+    Z levé strany máme
+    \begin{equation}
+        \frac{d^2 T(x)}{dx^2} = C T(x)
+    \end{equation}
+
+    Řešením je
+    \begin{equation}
+        T(x) = b_1 e^{\sqrt{C}x} + b_2 e^{-\sqrt{C}x}
+    \end{equation}
+
+    Z okrajových podmínek víme, že $T(a) = T(b) = 0$.
+
+    Pokud je $C\geq 0$, úloha má řešení pouze pro $u=0$. Proto $C < 0$. Přeznačme $\alpha := -C$
+
+    Z toho dostáváme 
+    \begin{equation}
+        T(x) = a_1 \sin(\sqrt{\alpha}x) + a_2 \cos(\sqrt{\alpha}x)
+    \end{equation}
+
+    Dosadíme okrajovou podmínku $u|_{x=0} = 0$ a máme 
+    \begin{equation}
+        T(x) = a_1 \sin(\sqrt{\alpha}x)
+    \end{equation}
+
+    Z druhé okrajové podmínky máme
+    \begin{equation}
+        T(x) = a_1 \sin(n\frac{\pi}{b-a}x)
+    \end{equation},
+    kde $n$ je celé číslo.
+ 
+    Tedy $\alpha = n\frac{\pi}{b-a}$
+
+    Celkově dostáváme řešení módů: 
+
+    \begin{equation}
+        u(x,t) = \sum_{n=1}^{\infty} C_n \sin(n\frac{\pi}{b-a}x) \exp(-\frac{n^2\pi^2t}{(b-a)^2})
+    \end{equation}
+    kde koeficienty $C_n$ se dostaly rozvojem počáteční podmínky do Fourierovy řady.
+
+    Proveďme zpětnou transformaci $\bar{x}=x+a$
+    
+    \begin{equation}
+        u(\bar{x},t) = \sum_{n=1}^{\infty} C_n \sin(n\frac{\pi}{b-a} (\bar{x} - a)) \exp(-\frac{n^2\pi^2t}{(b-a)^2})
+    \end{equation}
+
+    Řada diverguje pro $t<0$, dynamický systém je neinvertovatelný.
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

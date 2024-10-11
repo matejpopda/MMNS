@@ -1,0 +1,74 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+\section{Konečně-rozměrné dynamické systémy generované ODR}
+
+
+\subsection{Úloha 1}\label{sec:uloha1}
+
+\begin{equation}
+    \frac{d x}{d t} = f(x) , x(0) = x_ini 
+\end{equation}
+,kde 
+$\Gamma \subset \mathbb{R}^N$ je oblast, $f: \Gamma \mapsto \mathbb{R}^n, f\in C^{(3)}(\Gamma)$ a $x_{ini} \in \Gamma$
+
+\todo{Stuff}
+
+
+
+
+\begin{theorem}[Liouville]
+    Nechť platí pro \ref{sec:uloha1} předpoklady (z)\todo{change to link} a navíc 
+    $f\in C^{(3)} (\Gamma)$ a $M\subset\Gamma$ je měřitelná a $\mu(M) < \infty$.
+
+    Pak\begin{equation}
+        \frac{d}{dt} \left(\mu (\Phi_t (M))\right)|_{t=0} = \int_M \div f(x) dx
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    \begin{equation}
+        \mu(\Phi_t(M)) = \int_{\Phi_t(M)} 1 dy = \{\text{substituce }y =\Phi_t(x) \} = \int_M 1 |\mathcal{Y}|dx
+    \end{equation}
+
+    Výpočet jakobiánu
+
+    \begin{equation}
+        |\mathcal{Y}| = 
+            \begin{vmatrix}
+            \frac{\partial (\Phi_t(x))^1}{\partial x^1} & \dots & \frac{\partial (\Phi_t(x))^n}{\partial x^1} \\
+            \vdots                                      &       & \vdots                                      \\
+            \frac{\partial (\Phi_t(x))^1}{\partial x^n} & \dots & \frac{\partial (\Phi_t(x))^n}{\partial x^n}
+            \end{vmatrix}
+    \end{equation}
+
+    Pro $t$ z okolí $0$ a $\hat{x} \in \Gamma$:
+    \begin{equation}\label{eq:zelenanula}
+        \Phi_t(\hat{x}) = \Phi_0(\hat{x}) + t \frac{\partial}{\partial t } (\Phi_t(\hat{x}))|_{t=0} + \frac{1}{2}t^2 \frac{\partial^2}{\partial t^2} (\Phi_t (\hat{x})) |_{t=0} + R_3(t, \Phi_t(\hat{x}))
+    \end{equation} 
+
+    zde
+    \begin{equation}
+        \frac{\partial}{\partial t }(\Phi_t(\hat{x })) = f(\Phi_t (\hat{x}))
+    \end{equation}
+    a 
+    \begin{equation}
+        \frac{\partial^2}{\partial t^2} (\Phi_t (\hat{x})) = \frac{\partial}{\partial t}(f(\Phi_t (\hat{x}))) = f'(\Phi_t (\hat{x})) \frac{\partial}{\partial t} (\Phi_t (\hat{x})) = f'(\Phi_t (\hat{x})) f(\Phi_t (\hat{x}))
+    \end{equation}
+
+    Rovnici \eqref{eq:zelenanula} derivijeme podle složek $\hat{x}$
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\end{document}
